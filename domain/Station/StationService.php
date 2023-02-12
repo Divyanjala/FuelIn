@@ -5,7 +5,7 @@ namespace domain\Station;
 use App\Models\StationFuelType;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
+use Illuminate\Support\Str;
 use App\Models\Stations;
 use App\Models\User;
 
@@ -52,7 +52,7 @@ class StationService
         $userData['name'] =  $request['name'];
         $userData['status'] =  0;
         $userData['user_role'] = 2;
-        $randString = "HHDHD#23#";
+        $randString = Str::random(10);
         $password=Hash::make($randString);
         $userData['password'] = $password;
         $user=$this->user->create($userData);
