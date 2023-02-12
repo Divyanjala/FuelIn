@@ -9,7 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin- Dashboard</title>
+  
+    @yield('title')
 
     @php
     $curr_url = Route::currentRouteName();

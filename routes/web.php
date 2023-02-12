@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController as AHC;
+use App\Http\Controllers\Admin\StationController as ASC;
+use App\Http\Controllers\Admin\SettingController as ASEC;
 
 use App\Http\Controllers\Station\HomeController as SHC;
 
@@ -21,6 +23,10 @@ Route::get('/', function () {
 });
 Route::prefix('/admin')->group(function () {
     Route::get('/dashboard', [AHC::class, "index"])->name('admin.dashboard');
+
+    Route::get('/station', [ASC::class, "index"])->name('admin.station');
+
+    Route::get('/fuel-type', [ASEC::class, "fuelType"])->name('admin.fuel-type');
 
 });
 
