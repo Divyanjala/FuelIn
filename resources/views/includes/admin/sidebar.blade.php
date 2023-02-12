@@ -30,7 +30,7 @@
      <!-- Nav Item - Pages Collapse Menu -->
      <li class="nav-item {{ in_array($curr_url, ['admin.station']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.station') }}"  >
-             <i class="fas fa-fw fa-house"></i>
+             <i class="fas fa-fw fa-university"></i>
              <span>Fuel Stations</span>
          </a>
      </li>
@@ -41,7 +41,7 @@
      </div>
      <li class="nav-item {{ in_array($curr_url, ['admin.fuel-type','admin.fuel-type.new']) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="{{ route('admin.fuel-type') }}"  >
-            <i class="fas fa-fw fa-house"></i>
+            <i class="fas fa-fw fa-file"></i>
             <span>Fuel Type</span>
         </a>
     </li>
