@@ -28,7 +28,7 @@
      </div>
 
      <!-- Nav Item - Pages Collapse Menu -->
-     <li class="nav-item {{ in_array($curr_url, ['admin.station']) ? 'active' : '' }}">
+     <li class="nav-item {{ in_array($curr_url, ['admin.station','admin.station.new']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.station') }}"  >
              <i class="fas fa-fw fa-university"></i>
              <span>Fuel Stations</span>

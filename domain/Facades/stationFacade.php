@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Facade;
  * Date: 05/07/2022
  * Time: 07:10 PM
  */
-class FineFacade extends Facade
+class stationFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return FineService::class;
+        return Sta::class;
     }
 }

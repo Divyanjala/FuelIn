@@ -13,12 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('fuel_types', function (Blueprint $table) {
+        Schema::create('stations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('code')->nullable();
-            $table->integer('status')->default(0);
-            $table->text('des')->nullable();
+            $table->string('district');
+            $table->string('address');
+            $table->integer('tele');
+            $table->integer('account_nb');
+            $table->integer('manager_tele');
+            $table->text('des');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fuel_types');
+        Schema::dropIfExists('stations');
     }
 };

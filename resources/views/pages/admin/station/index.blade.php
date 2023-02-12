@@ -12,9 +12,9 @@
                 </div>
                 <div class="col-lg-4 text-right">
 
-                    {{-- <a href="{{ route('admin.plant.new') }}" class=" btn btn-sm btn-primary float-right">
+                    <a href="{{ route('admin.station.new') }}" class=" btn btn-sm btn-primary float-right">
                         <i class="fas fa-plus-circle"></i> Add New
-                    </a> --}}
+                    </a>
                 </div>
             </div>
         </div>
