@@ -1,7 +1,8 @@
 <?php
 
 namespace domain\Facades;
-use domain\Medical\MedicalService;
+
+use domain\Setting\SettingService;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -9,10 +10,10 @@ use Illuminate\Support\Facades\Facade;
  * Date: 05/07/2022
  * Time: 07:10 PM
  */
-class MedicalFacade extends Facade
+class SettingFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return MedicalService::class;
+        return SettingService::class;
     }
 }

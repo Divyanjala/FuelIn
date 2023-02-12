@@ -39,7 +39,7 @@
      <div class="sidebar-heading">
          Setting
      </div>
-     <li class="nav-item {{ in_array($curr_url, ['admin.fuel-type']) ? 'active' : '' }}">
+     <li class="nav-item {{ in_array($curr_url, ['admin.fuel-type','admin.fuel-type.new']) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="{{ route('admin.fuel-type') }}"  >
             <i class="fas fa-fw fa-house"></i>
             <span>Fuel Type</span>
