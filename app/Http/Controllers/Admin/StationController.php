@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use domain\Facades\SettingFacade;
-use domain\Facades\stationFacade;
-use GuzzleHttp\Psr7\Request;
+use domain\Facades\StationFacade;
+use Illuminate\Http\Request;
 
-class StationController extends ParentController
+class StationController extends Controller
 {
     public function index()
     {
@@ -29,7 +29,14 @@ class StationController extends ParentController
      */
     public function stationStore(Request $request)
     {
-        stationFacade::stationstore($request->all());
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            // 'address' => ['required', 'string', 'max:255'],
+            // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        StationFacade::stationStore($request->all());
         return redirect()->route('admin.station')->with('alert-success', 'Fuel Station Added Successfully');
     }
 }
