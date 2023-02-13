@@ -11,7 +11,8 @@ class StationController extends Controller
 {
     public function index()
     {
-       return view('pages.admin.station.index');
+       $response['stations']=StationFacade::allStations();
+       return view('pages.admin.station.index')->with($response);
     }
 
     public function stationNew()
