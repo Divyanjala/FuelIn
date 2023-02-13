@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title')
-<title>Admin- Station</title>
+    <title>Admin- Station</title>
 @endsection
 @section('header')
     <div class="row  py-4">
@@ -73,6 +73,7 @@
                         </tr>
                     @endforeach
                 </tbody>
+            </table>
         </div>
     </div>
 @endsection
