@@ -72,7 +72,7 @@
                                     <div class="form-group">
                                         <label for="name"><b>Telephone</b></label>
                                         <input type="text" class="form-control form-control-alternative" name="tele"
-                                            id="tele" aria-describedby="helpId" placeholder="" required>
+                                        maxlength="10"  id="tele" aria-describedby="helpId" placeholder="" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-9">
@@ -102,7 +102,7 @@
                                         <label for="name"><b>Account Number</b></label>
                                         <input type="text" class="form-control form-control-alternative"
                                             name="account_nb" id="tele" aria-describedby="helpId" placeholder=""
-                                            required>
+                                            required >
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -110,7 +110,7 @@
                                         <label for="name"><b>Manager Telephone</b></label>
                                         <input type="text" class="form-control form-control-alternative"
                                             name="manager_tele" id="manager_tele" aria-describedby="helpId" placeholder=""
-                                            required>
+                                            required maxlength="10">
                                     </div>
                                 </div>
                             </div>
@@ -152,4 +152,12 @@
             $('#type_id').select2();
         });
     </script>
+@endsection
+@section('css')
+   <style>
+        .error{
+            font-size: 12px;
+            color: red;
+        }
+   </style>
 @endsection

