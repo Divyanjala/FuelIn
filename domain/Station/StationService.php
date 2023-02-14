@@ -79,7 +79,7 @@ class StationService
             $fuelType['fuel_type_id']=$value;
             $this->stationType->create($fuelType);
         }
-        Mail::to('diwyanjala96@gmail.com')->send(new \App\Mail\RegisterEmail($userData));
+        Mail::to( $newdata['email'])->send(new \App\Mail\RegisterEmail($userData));
 
         return $this->station->where('id',$station->id)->update(['code'=>'STTFUEL'.(string)$station->id]);
     }

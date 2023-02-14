@@ -57,7 +57,7 @@ class RegisterController extends BaseController
         $userData['name']=$user->name;
         $userData['password_gmail']=$input['c_password'];
         $userData['email']=$user->email;
-        Mail::to('diwyanjala96@gmail.com')->send(new \App\Mail\RegisterEmail($userData));
+        Mail::to($user->email)->send(new \App\Mail\RegisterEmail($userData));
 
         return $this->sendResponse($success, 'User register successfully.');
     }
