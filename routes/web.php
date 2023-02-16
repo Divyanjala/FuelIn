@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\StationController as ASC;
 use App\Http\Controllers\Admin\SettingController as ASEC;
 
 use App\Http\Controllers\Station\HomeController as SHC;
+use App\Http\Controllers\Station\CustomerController as SCC;
+use App\Http\Controllers\Station\VehicleController as SVC;
 
 use App\Http\Controllers\User\HomeController as UHC;
 /*
@@ -34,8 +36,28 @@ Route::prefix('/admin')->group(function () {
 
 });
 
-Route::prefix('/station')->group(function () {
-    Route::get('/', [SHC::class, "index"])->name('station.dashboard');
+Route::prefix('station')->group(function () {
+    // Manage customers.
+    Route::prefix('customer')->group(function () {
+        Route::post('store', [SCC::class, "store"])->name('station.customers.store');
+        Route::post('edit', [SCC::class, "edit"])->name('station.customers.edit');
+        Route::get('edit/{id}', [SCC::class, "editView"]);
+        Route::get('new', [SCC::class, "newView"])->name('station.customers.new');
+        Route::get('', [SCC::class, "index"])->name('station.customers');
+
+
+        // Customer vehicles
+//        Route::get('{customer_id}/vehicle', [SVC::class, "index"]);
+        Route::prefix('{customer_id}/vehicle')->group(function () {
+            Route::post('store', [SVC::class, "store"])->name('station.customers.vehicle.store');
+            Route::post('edit', [SVC::class, "edit"])->name('station.customers.vehicle.edit');
+            Route::get('edit/{id}', [SVC::class, "editView"]);
+            Route::get('new', [SVC::class, "newView"])->name('station.customers.vehicle.new');
+            Route::get('', [SVC::class, "index"])->name('station.customers.vehicle');
+        });
+    });
+
+    Route::get('', [SHC::class, "index"])->name('station.dashboard');
 });
 
 Route::prefix('/user')->group(function () {
