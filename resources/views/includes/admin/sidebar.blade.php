@@ -45,6 +45,12 @@
             <span>Fuel Type</span>
         </a>
     </li>
+    <li class="nav-item {{ in_array($curr_url, ['admin.vehical-type']) ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="{{ route('admin.vehical-type') }}"  >
+            <i class="fas fa-fw fa-bus"></i>
+            <span>Vehical Type</span>
+        </a>
+    </li>
      <!-- Nav Item - Pages Collapse Menu -->
      {{-- <li class="nav-item {{ in_array($curr_url, ['admin.fine.all']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.fine.all') }}">

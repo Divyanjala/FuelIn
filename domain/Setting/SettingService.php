@@ -6,6 +6,7 @@ namespace domain\Setting;
 
 use App\Models\FuelType;
 use App\Models\User;
+use App\Models\VehicleType;
 
 /**
  * Created by Vs COde.
@@ -16,11 +17,13 @@ class SettingService
 {
     protected $fuelType;
     protected $user;
+    protected $vehical_type;
 
     public function __construct()
     {
         $this->user = new User();
         $this->fuelType = new FuelType();
+        $this->vehical_type = new VehicleType();
     }
 
     /**
@@ -29,6 +32,14 @@ class SettingService
     public function allTypes()
     {
         return $this->fuelType->orderBy('id', 'desc')->get();
+    }
+    
+    /**
+     * All vehical_type
+     */
+    public function allVehicalTypes()
+    {
+        return $this->vehical_type->orderBy('id', 'desc')->get();
     }
 
         /**

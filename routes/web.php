@@ -34,6 +34,8 @@ Route::prefix('/admin')->group(function () {
     Route::get('/fuel-type/new', [ASEC::class, "fuelTypeNew"])->name('admin.fuel-type.new');
     Route::post('/fuel-type/store', [ASEC::class, "fuelTypeStore"])->name('admin.fuel-type.store');
 
+    Route::get('/vehical-type', [ASEC::class, "vehicalType"])->name('admin.vehical-type');
+
 });
 
 Route::prefix('station')->group(function () {
