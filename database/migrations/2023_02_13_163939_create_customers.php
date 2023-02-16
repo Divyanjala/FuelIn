@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Customer;
+use App\Models\User;
+use App\Models\Vehicle;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,8 +16,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
-            $table->id();
+        Schema::table('customers', function (Blueprint $table) {
+            $table->dropForeign('customers_user_id_foreign');
+            $table->dropColumn('user_id');
+            $table->dropColumn('first_name');
+            $table->dropColumn('last_name');
+            $table->dropColumn('address');
+            $table->dropColumn('telephone');
+            $table->dropColumn('nic');
+        });
+
+        Schema::table('customers', function (Blueprint $table) {
+            $table->string('full_name')->nullable();
             $table->string('mobile_number')->nullable();
             $table->string('vehical_number')->nullable();
             $table->string('nic')->nullable();
@@ -26,8 +39,8 @@ return new class extends Migration
             $table->foreign('fuel_type_id')->references('id')->on('fuel_types')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->timestamps();
         });
+
     }
 
     /**
