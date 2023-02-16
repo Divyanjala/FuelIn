@@ -30,11 +30,17 @@
      <!-- Nav Item - Pages Collapse Menu -->
      <li class="nav-item {{ in_array($curr_url, ['admin.station','admin.station.new']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.station') }}"  >
-             <i class="fas fa-fw fa-university"></i>
+             <i class="fas fa-fw fa-gas-pump"></i>
              <span>Fuel Stations</span>
          </a>
      </li>
-
+     <!-- Nav Item - Pages Collapse Menu -->
+     <li class="nav-item {{ in_array($curr_url, ['admin.distribution','admin.distribution.new']) ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="{{ route('admin.distribution') }}"  >
+            <i class="fas fa-fw fa-truck-field"></i>
+            <span>Fuel Distibution</span>
+        </a>
+    </li>
           <!-- Heading -->
      <div class="sidebar-heading">
          Setting

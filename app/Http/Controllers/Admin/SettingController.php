@@ -14,6 +14,12 @@ class SettingController extends Controller
        return view('pages.admin.fuel_type.index')->with($response);
     }
 
+    public function getfuelType(Request $request)
+    {
+       $product= SettingFacade::getType($request->all()['id']);
+       return ['name'=>$product['name'],'price'=>$product['price']];
+    }
+    
     public function vehicalType()
     {
        $response['types']=SettingFacade::allVehicalTypes();

@@ -13,4 +13,10 @@ class CommonController extends BaseController
         $response['types']=SettingFacade::allTypes();
         return $this->sendResponse($response, 'Fuel Types.');
     }
+
+    public function vehicalTypes()
+    {
+        $response['vehical_types']=SettingFacade::allVehicalTypes();
+        return $this->sendResponse($response, 'Vehical Types.');
+    }
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController as AHC;
 use App\Http\Controllers\Admin\StationController as ASC;
 use App\Http\Controllers\Admin\SettingController as ASEC;
+use App\Http\Controllers\Admin\DistributionController as ADC;
 
 use App\Http\Controllers\Station\HomeController as SHC;
 use App\Http\Controllers\Station\CustomerController as SCC;
@@ -33,9 +34,15 @@ Route::prefix('/admin')->group(function () {
     Route::get('/fuel-type', [ASEC::class, "fuelType"])->name('admin.fuel-type');
     Route::get('/fuel-type/new', [ASEC::class, "fuelTypeNew"])->name('admin.fuel-type.new');
     Route::post('/fuel-type/store', [ASEC::class, "fuelTypeStore"])->name('admin.fuel-type.store');
+    Route::get('/fuel-type/get', [ASEC::class, "getfuelType"])->name('admin.fuel-type.get');
 
     Route::get('/vehical-type', [ASEC::class, "vehicalType"])->name('admin.vehical-type');
 
+    Route::get('/distribution', [ADC::class, "index"])->name('admin.distribution');
+    Route::get('/distribution/new', [ADC::class, "newDistribution"])->name('admin.distribution.new');
+    Route::post('/distribution/store', [ADC::class, "storeDistribution"])->name('admin.distribution.store');
+    Route::get('/distribution/view/{id}', [ADC::class, "viewDistribution"])->name('admin.distribution.view');
+    Route::get('/distribution/approve/{id}', [ADC::class, "approveDistribution"])->name('admin.distribution.approve');
 });
 
 Route::prefix('station')->group(function () {
