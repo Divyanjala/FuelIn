@@ -1,7 +1,8 @@
 <?php
 
 namespace domain\Facades;
-use domain\Fine\FineService;
+
+use domain\Station\StationService;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -9,10 +10,10 @@ use Illuminate\Support\Facades\Facade;
  * Date: 05/07/2022
  * Time: 07:10 PM
  */
-class FineFacade extends Facade
+class StationFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return FineService::class;
+        return StationService::class;
     }
 }

@@ -15,4 +15,10 @@ class Customer extends Model
     {
         return $this->belongsTo(User::class,'user_id');
     }
+
+    protected $fillable = [
+        'first_name','last_name',
+        'code','mobile_number','vehical_number','nic',
+        'address','vehical_type','chassis_number','fuel_type_id','user_id'
+    ];
 }

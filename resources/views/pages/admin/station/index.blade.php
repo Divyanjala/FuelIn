@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title')
-<title>Admin- Station</title>
+    <title>Admin- Station</title>
 @endsection
 @section('header')
     <div class="row  py-4">
@@ -12,9 +12,9 @@
                 </div>
                 <div class="col-lg-4 text-right">
 
-                    {{-- <a href="{{ route('admin.plant.new') }}" class=" btn btn-sm btn-primary float-right">
+                    <a href="{{ route('admin.station.new') }}" class=" btn btn-sm btn-primary float-right">
                         <i class="fas fa-plus-circle"></i> Add New
-                    </a> --}}
+                    </a>
                 </div>
             </div>
         </div>
@@ -32,31 +32,22 @@
                         <th>District</th>
                         <th>Station Code</th>
                         <th>Created At</th>
-                        <th>Approved By</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
-                {{-- <tbody>
-                    @foreach ($plants as $key => $plant)
+                <tbody>
+                    @foreach ($stations as $key => $station)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td>{{ $plant->name }}</td>
-                            <td>{{ $plant->code }}
+                            <td>{{ $station->name }}</td>
+                            <td>{{ $station->district }}
                             </td>
-                            <td><b>$ </b>{{ number_format($plant->price, 2, '.', ',') }}</td>
-                            <td>{{ $plant->created_at }}</td>
-                            <td>{{$plant->approved_by?$plant->approve->name:'-'}}</td>
-                            <td>
-                                @switch($plant->status)
-                                    @case(0)
-                                        <span class="badge badge-pill badge-danger">Pending</span>
-                                    @break
 
-                                    @case(1)
-                                        <span class="badge badge-pill badge-primary">Approve</span>
-                                    @break
-                                @endswitch
+                            <td>{{ $station->code }}</td>
+                            <td>{{ $station->created_at }}</td>
+                            <td>
+                                <span class="badge badge-pill badge-primary">Available</span>
                             </td>
                             <td>
                                 <div class="dropdown no-arrow mb-1">
@@ -64,7 +55,7 @@
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-cog"></i>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in"
+                                    {{-- <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in"
                                         aria-labelledby="dropdownMenuButton" x-placement="bottom-start"
                                         style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
                                         @if ($plant->status == 0)
@@ -75,13 +66,13 @@
                                             </a>
                                         @endif
 
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </td>
 
                         </tr>
                     @endforeach
-                </tbody> --}}
+                </tbody>
             </table>
         </div>
     </div>

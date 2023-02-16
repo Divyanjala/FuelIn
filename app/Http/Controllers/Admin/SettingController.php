@@ -11,7 +11,7 @@ class SettingController extends Controller
     public function fuelType()
     {
        $response['types']=SettingFacade::allTypes();
-       return view('pages.admin.fuel_type.index')->with($response);;
+       return view('pages.admin.fuel_type.index')->with($response);
     }
 
     public function fuelTypeNew()

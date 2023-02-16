@@ -19,7 +19,10 @@
     <script src="{{ asset('theme/js/js/notify/index.js') }}"></script>
     <!-- Datatables JS -->
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-   
+    
+       <!-- Select2 JS -->
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+
     <script type='text/javascript'>
         $(document).ready(function() {
 

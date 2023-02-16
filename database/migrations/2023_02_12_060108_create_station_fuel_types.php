@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('fuel_types', function (Blueprint $table) {
+        Schema::create('station_fuel_types', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('code')->nullable();
-            $table->integer('status')->default(0);
-            $table->text('des')->nullable();
+            $table->unsignedBigInteger('station_id');
+            $table->foreign('station_id')->references('id')->on('stations')->onDelete('cascade');
+            $table->unsignedBigInteger('fuel_type_id');
+            $table->foreign('fuel_type_id')->references('id')->on('fuel_types')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fuel_types');
+        Schema::dropIfExists('station_fuel_types');
     }
 };
