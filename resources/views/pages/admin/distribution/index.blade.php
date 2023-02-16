@@ -25,7 +25,7 @@
                 <thead class="thead-light">
                     <tr>
                         <th>ID</th>
-                        <th>Customer name</th>
+                        <th>Station name</th>
                         <th>Amount</th>
                         <th>Payment Status</th>
                         <th>Approved BY</th>

@@ -19,7 +19,7 @@
                         <div class="row">
                             <div class="col-lg-7">
                                 <div class="form-group">
-                                    <label for="customer_id"><b>Customer</b></label>
+                                    <label for="customer_id"><b>Station</b></label>
                                     <input type="text" class="form-control form-control-alternative" readonly
                                         id="customer" value="{{ $order->station->name }}">
                                 </div>
@@ -116,7 +116,7 @@
                 </div>
             </div>
             <div class="col-lg-12">
-                <h5>Product Item</h5>
+                <h5>Fuel Item</h5>
                 <div class="card">
                     <div class="card-body">
 
@@ -127,8 +127,8 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">Product name </th>
-                                                <th scope="col">Qty</th>
+                                                <th scope="col">Fuel name </th>
+                                                <th scope="col">Qty (Liter)</th>
                                             </tr>
                                         </thead>
                                         <tbody id="products">
@@ -136,7 +136,7 @@
                                                 <tr>
                                                     <td>{{ $key }}</td>
                                                     <td>{{ $item->product->name }} </td>
-                                                    <td>{{ $item->qty }}</td>
+                                                    <td>{{ $item->qty }} L</td>
 
                                                 </tr>
                                             @endforeach
