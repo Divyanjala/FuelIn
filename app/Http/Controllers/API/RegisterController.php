@@ -48,6 +48,7 @@ class RegisterController extends BaseController
         $customer['vehical_number']=$input['vehical_number'];
         $customer['address']=$input['address'];
         $customer['vehical_type']=$input['vehical_type'];
+        $customer['type_id']=$input['vehical_type'];
         $customer['chassis_number']=$input['chassis_number'];
         $customer['fuel_type_id']=$input['fuel_type_id'];
         $customer['user_id']=$user->id;

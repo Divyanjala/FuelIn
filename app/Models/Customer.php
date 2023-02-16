@@ -18,7 +18,7 @@ class Customer extends Model
 
     protected $fillable = [
         'full_name', 'code','mobile_number','vehical_number','nic',
-        'address','vehical_type','chassis_number','fuel_type_id','user_id'
+        'address','vehical_type','chassis_number','fuel_type_id','user_id','type_id'
     ];
 
     public function fuel(){
