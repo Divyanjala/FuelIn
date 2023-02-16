@@ -32,7 +32,7 @@
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block">
-                        <img src="{{ asset('img/Fueltek_-Fleet-Efficiency-1.webp')}}" alt="" width="400" height="560">
+                        <img src="{{ asset('img/fms-tech-fuel-management-system.jpg')}}" alt="" width="400" height="560">
                     </div>
                     <div class="col-lg-7">
                         <x-auth-validation-errors style="color: red;" class="mb-4" :errors="$errors" />

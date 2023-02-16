@@ -37,7 +37,7 @@
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block ">
-                                <img src="{{ asset('img/Fueltek_-Fleet-Efficiency-1.webp')}}" alt="" width="400" height="500">
+                                <img src="{{ asset('img/fms-tech-fuel-management-system.jpg')}}" alt="" width="400" height="500">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
