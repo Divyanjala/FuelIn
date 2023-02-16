@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends ParentController
 {
@@ -12,6 +13,7 @@ class HomeController extends ParentController
      */
     public function index()
     {
-        return view('pages.user.dashboard');
+        $response['user']=Auth::user();
+        return view('pages.user.view')->with($response);
     }
 }
