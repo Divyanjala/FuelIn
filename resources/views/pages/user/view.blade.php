@@ -29,7 +29,25 @@
                     </div>
                     <div class="col md-6">
                         <div class="mb-3">
-                            
+                            <label for=""><b>Name</b> :  {{$user->name}}</label>
+                        </div>
+                        <div class="mb-3">
+                            <label for=""><b>Email</b> : {{$user->email}}</label>
+                        </div>
+                        <div class="mb-3">
+                            <label for=""><b>Mobile Number</b> : {{$user->user->mobile_number}}</label>
+                        </div>
+                        <div class="mb-3">
+                            <label for=""><b>Vehical Type</b> : {{$user->user->vehical_type}}</label>
+                        </div>
+                        <div class="mb-3">
+                            <label for=""><b>Vehical Number</b> : {{$user->user->vehical_number}}</label>
+                        </div>
+                        <div class="mb-3">
+                            <label for=""><b>Customer Code</b> : {{$user->user->code}}</label>
+                        </div>
+                        <div class="mb-3">
+                            <label for=""><b>Fuel Type</b> : {{$user->user->fuel->name}}</label>
                         </div>
                     </div>
                 </div>

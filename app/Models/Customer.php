@@ -13,4 +13,8 @@ class Customer extends Model
         'code','mobile_number','vehical_number','nic',
         'address','vehical_type','chassis_number','fuel_type_id','user_id'
     ];
+
+    public function fuel(){
+        return $this->belongsTo(FuelType::class,'fuel_type_id');
+    }
 }
