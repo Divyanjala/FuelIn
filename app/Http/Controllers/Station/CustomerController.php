@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Station;
 
+use App\Models\FuelType;
+use App\Models\VehicleType;
 use domain\Facades\CustomerFacade;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -18,7 +20,9 @@ class CustomerController extends ParentController
 
     public function newView()
     {
-        return view('pages.station.customer.new');
+        $this->resources['vehicleTypesArr'] = VehicleType::orderBy('name')->get();
+        $this->resources['fuelTypesArr'] = FuelType::orderBy('name')->get();
+        return view('pages.station.customer.new')->with($this->resources);
     }
 
     public function editView(Request $request)
@@ -38,11 +42,15 @@ class CustomerController extends ParentController
         $requestParams = $request->all();
 
         $rules = [
-            'first_name' => ['required', 'string', 'max:100'],
-            'last_name' => ['required', 'string', 'max:100'],
+            'first_name' => ['required', 'string', 'max:200'],
+            'last_name' => ['required', 'string', 'max:200'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'address' => ['required'],
-            'telephone' => ['required'],
+            'mobile_number' => ['required'],
+            'registration_number' => ['required'],
+            'type_id' => ['required'],
+            'chassis_number' => ['required'],
+            'fuel_type_id' => ['required'],
             'nic' => ['required'],
 //            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ];

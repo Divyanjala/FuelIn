@@ -50,8 +50,8 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="font-weight-bold">Telephone</label>
-                            <input name="telephone" value="{{old('telephone')}}" type="tel" class="form-control @error('telephone')is-invalid @enderror">
-                            @error('telephone')<span class="small text-danger">{{ $message }}</span>@enderror
+                            <input name="mobile_number" value="{{old('mobile_number')}}" type="tel" class="form-control @error('mobile_number')is-invalid @enderror">
+                            @error('mobile_number')<span class="small text-danger">{{ $message }}</span>@enderror
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -61,6 +61,62 @@
                             @error('nic')<span class="small text-danger">{{ $message }}</span>@enderror
                         </div>
                     </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Vehicle Type</label>
+                            <select name="type_id" class="form-control @error('type_id')is-invalid @enderror">
+                                <option value="">- Select Vehicle Type -</option>
+                                @foreach($vehicleTypesArr as $vehicleType)
+                                    <option @if($vehicleType['id'] == old('type_id')) selected @endif value="{{$vehicleType['id']}}">{{$vehicleType['name']}}</option>
+                                @endforeach
+                            </select>
+                            @error('type_id')<span class="small text-danger">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Fuel Type</label>
+                            <select name="fuel_type_id" class="form-control @error('fuel_type_id')is-invalid @enderror">
+                                <option value="">- Select Fuel Type -</option>
+                                @foreach($fuelTypesArr as $fuelType)
+                                    <option @if($fuelType['id'] == old('fuel_type_id')) selected @endif value="{{$fuelType['id']}}">{{$fuelType['name']}}</option>
+                                @endforeach
+                            </select>
+                            @error('fuel_type_id')<span class="small text-danger">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Registration Number</label>
+                            <input name="registration_number" value="{{old('registration_number')}}" type="text" class="form-control @error('registration_number')is-invalid @enderror">
+                            @error('registration_number')<span class="small text-danger">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Engine Number</label>
+                            <input name="engine_number" value="{{old('engine_number')}}" type="text" class="form-control @error('engine_number')is-invalid @enderror">
+                            @error('engine_number')<span class="small text-danger">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Chassis Number</label>
+                            <input name="chassis_number" value="{{old('chassis_number')}}" type="text" class="form-control @error('chassis_number')is-invalid @enderror">
+                            @error('chassis_number')<span class="small text-danger">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-dark" role="alert">
+                    Customer's default password is his/her mobile number. For security purposes, we recommend changing password after first login.
                 </div>
 
                 <div class="row mt-4">

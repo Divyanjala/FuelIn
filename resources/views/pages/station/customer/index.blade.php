@@ -28,10 +28,11 @@
                 <thead class="thead-light">
                 <tr>
                     <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>Full Name</th>
                     <th>Email</th>
                     <th>Phone</th>
+                    <th>Vehicle Number</th>
+                    <th>Code</th>
                     <th>Created Date</th>
                     <th>Actions</th>
                 </tr>
@@ -39,10 +40,11 @@
                 @foreach ($allArr as $key => $obj)
                     <tr>
                         <td>{{ $key + 1 }}</td>
-                        <td>{{ $obj->first_name }}</td>
-                        <td>{{ $obj->last_name }}</td>
+                        <td>{{ $obj->full_name }}</td>
                         <td>{{ $obj->user->email }}</td>
-                        <td>{{ $obj->telephone }}</td>
+                        <td>{{ $obj->mobile_number }}</td>
+                        <td>{{ $obj->vehical_number }}</td>
+                        <td>{{ $obj->code }}</td>
                         <td>{{ date('Y-m-d', strtotime($obj->created_at)) }}</td>
                         <td>
                             <div class="dropdown no-arrow mb-1">
