@@ -24,4 +24,8 @@ class Customer extends Model
     public function fuel(){
         return $this->belongsTo(FuelType::class,'fuel_type_id');
     }
+
+    public function quota(){
+        return $this->hasOne(CustomerQuota::class,'customer_id');
+    }
 }

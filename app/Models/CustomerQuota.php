@@ -11,4 +11,6 @@ class CustomerQuota extends Model
     protected $fillable = [
         'qty','use_qty','customer_id'
     ];
+
+
 }
