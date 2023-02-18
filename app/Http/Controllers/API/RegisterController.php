@@ -92,7 +92,7 @@ class RegisterController extends BaseController
 
             $success['customer_id']=$user->user->id;
             $success['qty']=$user->user->quota->qty;
-            $success['use_qty']=$user->user->quota->use_qty;
+            $success['use_qty']=0;
             return $this->sendResponse($success, 'User login successfully.');
         }
         else{

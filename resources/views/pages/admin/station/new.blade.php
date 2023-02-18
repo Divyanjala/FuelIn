@@ -71,7 +71,8 @@
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label for="name"><b>Telephone</b></label>
-                                        <input type="text" class="form-control form-control-alternative" name="tele"
+                                        <input type="number" class="form-control form-control-alternative" name="tele"
+                                       
                                         maxlength="10"  id="tele" aria-describedby="helpId" placeholder="" required>
                                     </div>
                                 </div>
@@ -100,7 +101,7 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label for="name"><b>Account Number</b></label>
-                                        <input type="text" class="form-control form-control-alternative"
+                                        <input type="number" class="form-control form-control-alternative"
                                             name="account_nb" id="tele" aria-describedby="helpId" placeholder=""
                                             required >
                                     </div>

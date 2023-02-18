@@ -51,7 +51,7 @@ class QuotaService
     {
         $newdata['customer_id'] =  $request['customer_id'];
         $newdata['qty'] =  $request['qty'];
-        $newdata['use_qty'] =  $request['use_qty'];
+        $newdata['use_qty'] =  0;
         return $this->quota->create($newdata);
     }
 

@@ -66,8 +66,10 @@
                         <div class="card-body">
                           <h5 class="card-title" style="color:black">Weekly Quota</h5>
 
-                          <h6 class="card-subtitle mt-4 text-muted">Eligible Weekly Quota : 4L</h6>
-                          <h6 class="card-subtitle mt-4 text-muted">Balance Weekly Quota  : 4L</h6>
+                          <h6 class="card-subtitle mt-4 text-muted">Eligible Weekly Quota :
+                            {{$user->user->quota->qty}}L</h6>
+                          <h6 class="card-subtitle mt-4 text-muted">Balance Weekly Quota  :
+                            {{$user->user->quota->qty-$user->user->quota->use_qty}}L</h6>
 
                         </div>
                       </div>
