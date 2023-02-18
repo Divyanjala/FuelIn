@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Models\Customer;
 use App\Models\User;
+use domain\Facades\QuotaFacade;
+use domain\Facades\VehicleFacade;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
@@ -55,9 +57,21 @@ class RegisterController extends BaseController
         $customer['code']='FUEL'.$user->id.'#';
         $cus = Customer::create($customer);
 
+
+        $vehical=VehicleFacade::getVehicleById($input['vehical_type']);
+
+        $quota['customer_id']=$cus->id;
+        $quota['qty']=$vehical->fuel_limit;
+        $quota['use_qty']=$vehical->fuel_limit;
+
+        QuotaFacade::quotaStore($quota);
+
         $userData['name']=$user->name;
         $userData['password_gmail']=$input['c_password'];
         $userData['email']=$user->email;
+        $userData['customer_id']=$cus->id;
+        $userData['qty']=$vehical->fuel_limit;
+        $userData['use_qty']=$vehical->use_qty;
         Mail::to($user->email)->send(new \App\Mail\RegisterEmail($userData));
 
         return $this->sendResponse($success, 'User register successfully.');

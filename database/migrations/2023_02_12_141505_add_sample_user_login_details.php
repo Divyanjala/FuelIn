@@ -21,17 +21,7 @@ return new class extends Migration
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('12345678'),
                 'user_role' => 1
-            ],[
-                'name' => 'Station',
-                'email' => 'station@gmail.com',
-                'password' => Hash::make('12345678'),
-                'user_role' => 2
-            ],[
-                'name' => 'Customer',
-                'email' => 'customer@gmail.com.com',
-                'password' => Hash::make('12345678'),
-                'user_role' => 3
-            ],
+            ]
         );
 
         User::insert($data);

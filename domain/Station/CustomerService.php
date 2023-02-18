@@ -7,6 +7,7 @@ use App\Models\FuelType;
 use App\Models\User;
 use App\Models\Vehicle;
 use App\Models\VehicleType;
+use domain\Facades\QuotaFacade;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -49,7 +50,7 @@ class CustomerService
 
             $fullName = $data['first_name'].' '.$data['last_name'];
 
-            $this->customer->create([
+            $cus=$this->customer->create([
                 'user_id' => $user['id'],
                 'address' => $data['address'],
                 'nic' => $data['nic'],
@@ -62,6 +63,12 @@ class CustomerService
                 'chassis_number' => $data['chassis_number'],
                 'fuel_type_id' => $data['fuel_type_id'],
             ]);
+
+            $quota['customer_id']=$cus->id;
+            $quota['qty']=$vehicleType->fuel_limit;
+            $quota['use_qty']=$vehicleType->fuel_limit;
+
+            QuotaFacade::quotaStore($quota);
 
             DB::commit();
 
