@@ -17,19 +17,19 @@ return new class extends Migration
     {
         $data = array(
             [
-                'name' => 'Tharindu Ad',
-                'email' => 'tharindu_ad@example.com',
-                'password' => Hash::make('11111111'),
+                'name' => 'Admin',
+                'email' => 'admin@gmail.com',
+                'password' => Hash::make('12345678'),
                 'user_role' => 1
             ],[
-                'name' => 'Tharindu St',
-                'email' => 'tharindu_st@example.com',
-                'password' => Hash::make('11111111'),
+                'name' => 'Station',
+                'email' => 'station@gmail.com',
+                'password' => Hash::make('12345678'),
                 'user_role' => 2
             ],[
-                'name' => 'Tharindu Cus',
-                'email' => 'tharindu_cus@example.com',
-                'password' => Hash::make('11111111'),
+                'name' => 'Customer',
+                'email' => 'customer@gmail.com.com',
+                'password' => Hash::make('12345678'),
                 'user_role' => 3
             ],
         );
