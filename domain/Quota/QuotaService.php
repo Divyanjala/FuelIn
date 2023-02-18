@@ -43,6 +43,15 @@ class QuotaService
     {
         return $this->quota->find($id);
     }
+
+    /**
+     * get quota
+     */
+    public function getQuotaByCustomer($id)
+    {
+        return $this->quota->where('customer_id',$id)->first();
+    }
+
     /**
      * Create type
      * @param  $request

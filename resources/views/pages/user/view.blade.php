@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col md-6">
                         <div class="mb-3">
-                            {!! DNS2D::getBarcodeHTML("https://techvblogs.com/blog/generate-qr-code-laravel-9",
+                            {!! DNS2D::getBarcodeHTML("https://1a45-2402-4000-20c2-17f9-2da8-c91b-693b-3e89.ap.ngrok.io/api/customerQuota/".$user->user->id,
                              'QRCODE') !!}
                         </div>
                     </div>

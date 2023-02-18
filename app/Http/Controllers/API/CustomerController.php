@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use domain\Facades\QuotaFacade;
 use Illuminate\Http\Request;
 
-class CustomerController extends Controller
+class CustomerController extends BaseController
 {
-    public function customerQuota()
+    public function customerQuota($id)
     {
-        $response['quota']=QuotaFacade::allTypes();
-        return $this->sendResponse($response, 'Fuel Types.');
+        $response['quota']=QuotaFacade::getQuotaByCustomer($id);
+        return $this->sendResponse($response, 'customer_data');
     }
 }
