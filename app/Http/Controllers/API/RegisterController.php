@@ -30,7 +30,7 @@ class RegisterController extends BaseController
         ]);
 
         if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());
+            return $this->sendError('The email has already been taken.', []);
         }
 
         $input = $request->all();
@@ -89,10 +89,9 @@ class RegisterController extends BaseController
             $success['token'] =  $user->createToken('MyApp')-> accessToken;
             $success['name'] =  $user->name;
             $success['user_role'] =  $user->name;
+            $success['id'] =  $user->id;
+            $success['email'] =  $user->email;
 
-            $success['customer_id']=$user->user->id;
-            $success['qty']=$user->user->quota->qty;
-            $success['use_qty']=0;
             return $this->sendResponse($success, 'User login successfully.');
         }
         else{

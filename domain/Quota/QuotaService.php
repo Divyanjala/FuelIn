@@ -2,6 +2,7 @@
 
 namespace domain\Quota;
 
+use App\Models\Customer;
 use App\Models\CustomerQuota;
 use App\Models\User;
 use App\Models\VehicleType;
@@ -19,11 +20,12 @@ class QuotaService
     protected $quota;
     protected $user;
     protected $vehical_type;
-
+    protected $customer;
     public function __construct()
     {
         $this->user = new User();
         $this->quota = new CustomerQuota();
+        $this->customer = new Customer();
         $this->vehical_type = new VehicleType();
     }
 
@@ -50,6 +52,17 @@ class QuotaService
     public function getQuotaByCustomer($id)
     {
         return $this->quota->where('customer_id',$id)->first();
+    }
+
+        /**
+     * get quota
+     */
+    public function getCustomer($id)
+    {
+        $customer['customer']= $this->customer->where('id',$id)->first();
+        $customer['user']= $this->user->find($customer['customer']->user_id);
+        $customer['quota']= $customer['customer']->quota;
+        return $customer;
     }
 
     /**

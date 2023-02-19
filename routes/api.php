@@ -22,6 +22,8 @@ Route::get('fuelType', [CommonController::class, 'types']);
 Route::get('vehicalType', [CommonController::class, 'vehicalTypes']);
 
 Route::get('customerQuota/{id}', [CustomerController::class, 'customerQuota']);
+Route::get('customer/{id}', [CustomerController::class, 'customer']);
+Route::get('station/{id}', [CustomerController::class, 'station']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
