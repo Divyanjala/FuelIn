@@ -34,6 +34,22 @@ class RegisterController extends BaseController
         }
 
         $input = $request->all();
+        $cus=QuotaFacade::getCustomerByNic($input['vehical_number']);
+        if ($cus) {
+            return $this->sendError('The NIC has already been taken.', []);
+        }
+
+        $vehical=QuotaFacade::getCustomerByVehical($input['vehical_number']);
+        if ($vehical) {
+            return $this->sendError('The Vehical number has already been taken.', []);
+        }
+
+        $chassis_number=QuotaFacade::getCustomerByChassi($input['chassis_number']);
+        if ($chassis_number) {
+            return $this->sendError('The Chassis number has already been taken.', []);
+        }
+
+
         $input['password'] = bcrypt($input['password']);
         $input['user_role']=3;
         $user = User::create($input);
@@ -88,7 +104,7 @@ class RegisterController extends BaseController
             $user = Auth::user();
             $success['token'] =  $user->createToken('MyApp')-> accessToken;
             $success['name'] =  $user->name;
-            $success['user_role'] =  $user->name;
+            $success['user_role'] =  $user->user_role;
             $success['id'] =  $user->id;
             $success['email'] =  $user->email;
 

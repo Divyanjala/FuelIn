@@ -59,7 +59,7 @@ class QuotaService
      */
     public function getCustomer($id)
     {
-        $customer['customer']= $this->customer->where('id',$id)->first();
+        $customer['customer']= $this->customer->where('user_id',$id)->first();
         $customer['user']= $this->user->find($customer['customer']->user_id);
         $customer['quota']= $customer['customer']->quota;
         return $customer;
@@ -78,4 +78,28 @@ class QuotaService
     }
 
 
+       /**
+     * All nic
+     */
+    public function getCustomerByNic($nic)
+    {
+        return $this->customer->where('nic', $nic)->first();
+    }
+
+           /**
+     * All vehical
+     */
+    public function getCustomerByVehical($nic)
+    {
+        return $this->customer->where('vehical_number', $nic)->first();
+    }
+
+
+           /**
+     * All vehical
+     */
+    public function getCustomerByChassi($num)
+    {
+        return $this->customer->where('chassis_number', $num)->first();
+    }
 }
