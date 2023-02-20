@@ -71,6 +71,7 @@ Route::prefix('station')->group(function () {
 
 Route::prefix('/user')->group(function () {
     Route::get('/', [UHC::class, "index"])->name('user.dashboard');
+    Route::post('customerRequest', [UHC::class, "storeRequest"])->name('user.request.store');
 
 });
 require __DIR__.'/auth.php';

@@ -66,7 +66,7 @@
                             <label for=""><b>Fuel Type</b> : {{ $user->user->fuel->name }}</label>
                         </div>
                     </div>
-                    <div class="card shadow" style="width: 18rem;">
+                    <div class="card shadow" style="width: 22rem;">
                         <div class="card-body">
                             <h5 class="card-title" style="color:black">Weekly Quota</h5>
 
@@ -75,17 +75,28 @@
                             <h6 class="card-subtitle mt-4 text-muted">Balance Weekly Quota :
                                 {{ $user->user->quota->qty - $user->user->quota->use_qty }}L</h6>
                                 <br><br>
-                            <form action="" method="post">
+                            <form action="{{ route('user.request.store') }}" method="post">
+                                @csrf
                                 <div class="form-group">
-                                    
+                                    <label for="station_id"><b>Station</b></label>
+                                    <select class="form-control" id="station_id" name="station_id">
+                                        @foreach ($stations as $station)
+                                            <option value="{{ $station->id }}">{{ $station->name }} -
+                                                {{ $station->code }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+
                                     <input type="number" class="form-control form-control-alternative" name="qty"
                                         id="qty" aria-describedby="helpId" placeholder="Please enter qty (L)" required>
                                     <input type="hidden" class="form-control form-control-alternative"
                                         name="customer_id" id="customer_id" aria-describedby="helpId" placeholder=""
                                         value="{{ $user->user->id }}">
                                 </div>
+
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-primary">Request</button>
+                                    <button type="submit" class="btn btn-primary">Request</button>
                                 </div>
 
                             </form>
@@ -100,27 +111,29 @@
 
 
         <div class="card card-body mt-2">
-            {{-- <form action="" method="post">
-            <div class="row">
+            <table class="table table-sm table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Station</th>
+                    <th scope="col">Request Qty (L)</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Token Number</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @foreach ($requests as $key=>$request)
 
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="name"><b>Request Qty</b></label>
-                            <input type="number" class="form-control form-control-alternative" name="qty"
-                                id="qty" aria-describedby="helpId" placeholder="" required>
-                            <input type="hidden" class="form-control form-control-alternative" name="customer_id"
-                                id="customer_id" aria-describedby="helpId" placeholder="" value="{{ $user->user->id }}">
-
-                        </div>
-                    </div>
-                    <br>
-                    <div class="col-md-2 mt-4">
-                        <button type="button" class="btn btn-primary">Request</button>
-                    </div>
-
-
-            </div>
-        </form> --}}
+                    @endforeach
+                  <tr>
+                    <th scope="row">{{$key+1}}</th>
+                    <th scope="row">{{$request->station->name}}</th>
+                    <td>{{$request->qty}}</td>
+                    <td>{{$request->date}}</td>
+                    <td>{{$request->quota_index}}</td>
+                  </tr>
+                </tbody>
+              </table>
         </div>
     </div>
     <!-- Logout Modal-->
