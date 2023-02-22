@@ -77,6 +77,12 @@ class QuotaService
         return $this->quota->create($newdata);
     }
 
+    public function quotaUpdate($request,$id)
+    {
+        $newdata['use_qty'] =  $request['qty'];
+        return $this->quota->where('customer_id',$id)->update($newdata);
+    }
+
 
        /**
      * All nic

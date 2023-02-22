@@ -28,4 +28,18 @@ class CustomerController extends BaseController
        $response['staion']=$response['user']->station;
         return $this->sendResponse($response, 'customer_data');
     }
+
+    public function customerQuotaUpdate(Request $request)
+    {
+
+        $data = $request->all();
+        $user=UserFacade::get($data['user_id']);
+        if (($user->user->quota->qty-$user->user->quota->use_qty)<$data['qty']) {
+            return $this->sendError('Please check the balance weekly Quota', []);
+        }
+        QuotaFacade::quotaUpdate($data,$user->user->id);
+        $quota=QuotaFacade::getQuotaByCustomer($user->user->id);
+        return $this->sendResponse($quota, 'User Quota update successfully.');
+        // return $this->sendResponse($response, 'customer_data');
+    }
 }

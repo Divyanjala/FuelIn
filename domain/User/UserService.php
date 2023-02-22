@@ -24,7 +24,7 @@ class UserService
     public function __construct()
     {
         $this->customer_request = new CustomerQuotaRequest();
-
+        $this->user = new User();
     }
 
     /**
