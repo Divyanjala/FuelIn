@@ -37,7 +37,7 @@
                     <div class="col md-6">
                         <div class="mb-3">
                             {!! DNS2D::getBarcodeHTML(
-                                'https://1a45-2402-4000-20c2-17f9-2da8-c91b-693b-3e89.ap.ngrok.io/api/customerQuota/' . $user->user->id,
+                                ' https://bd82-2402-4000-b18e-918c-94f4-7f5b-e175-d02f.in.ngrok.io/api/customerQuota/' . $user->user->id,
                                 'QRCODE',
                             ) !!}
                         </div>
@@ -123,15 +123,15 @@
                 </thead>
                 <tbody>
                     @foreach ($requests as $key=>$request)
-
+                    <tr>
+                        <th scope="row">{{$key+1}}</th>
+                        <th scope="row">{{$request->station->name}}</th>
+                        <td>{{$request->qty}}</td>
+                        <td>{{$request->date}}</td>
+                        <td>{{$request->quota_index}}</td>
+                      </tr>
                     @endforeach
-                  <tr>
-                    <th scope="row">{{$key+1}}</th>
-                    <th scope="row">{{$request->station->name}}</th>
-                    <td>{{$request->qty}}</td>
-                    <td>{{$request->date}}</td>
-                    <td>{{$request->quota_index}}</td>
-                  </tr>
+
                 </tbody>
               </table>
         </div>

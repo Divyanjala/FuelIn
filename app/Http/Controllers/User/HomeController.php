@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use domain\Facades\QuotaFacade;
 use domain\Facades\StationFacade;
 use domain\Facades\UserFacade;
 use Illuminate\Http\Request;
@@ -23,7 +24,14 @@ class HomeController extends ParentController
 
     public function storeRequest(Request $request)
     {
+        $data = $request->all();
+        $user=QuotaFacade::getQuotaByCustomer($data['customer_id']);
+  
+        if (($user->qty-$user->use_qty)<$data['qty']) {
+            return redirect()->route('user.dashboard')->with('alert-warning', 'Please check the balance weekly Quota');
+        }
         UserFacade::makeRequest($request->all());
+        QuotaFacade::quotaUpdate($data,$data['customer_id']);
         return redirect()->route('user.dashboard')->with('alert-success', 'Order Request Added Successfully');
     }
 }
