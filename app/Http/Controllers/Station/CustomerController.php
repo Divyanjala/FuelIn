@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Station;
 use App\Models\FuelType;
 use App\Models\VehicleType;
 use domain\Facades\CustomerFacade;
+use domain\Facades\UserFacade;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class CustomerController extends ParentController
@@ -24,6 +26,13 @@ class CustomerController extends ParentController
         $this->resources['fuelTypesArr'] = FuelType::orderBy('name')->get();
         return view('pages.station.customer.new')->with($this->resources);
     }
+
+    public function customerRequest()
+    {
+        $resources['requests'] = UserFacade::getStationRequest(Auth::user()->station->id);
+        return view('pages.station.request.index')->with($resources);
+    }
+
 
     public function editView(Request $request)
     {

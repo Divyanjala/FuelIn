@@ -53,7 +53,7 @@ Route::prefix('station')->group(function () {
         Route::get('edit/{id}', [SCC::class, "editView"]);
         Route::get('new', [SCC::class, "newView"])->name('station.customers.new');
         Route::get('', [SCC::class, "index"])->name('station.customers');
-
+        Route::get('requests', [SCC::class, "customerRequest"])->name('station.request.all');
 
         // Customer vehicles
 //        Route::get('{customer_id}/vehicle', [SVC::class, "index"]);

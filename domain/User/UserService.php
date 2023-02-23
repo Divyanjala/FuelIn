@@ -47,6 +47,14 @@ class UserService
         return $this->customer_request
         ->where('customer_id',$id)->orderBy('id', 'desc')->get();
     }
+
+    public function getStationRequest($id)
+    {
+
+        return $this->customer_request
+        ->where('station_id',$id)->orderBy('id', 'desc')->get();
+    }
+
     public function makeRequest($data)
     {
 

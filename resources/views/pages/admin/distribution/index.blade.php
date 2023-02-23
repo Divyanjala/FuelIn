@@ -27,7 +27,6 @@
                         <th>ID</th>
                         <th>Station name</th>
                         <th>Amount</th>
-                        <th>Payment Status</th>
                         <th>Approved BY</th>
                         <th>Created At</th>
                         <th>Status</th>
@@ -40,15 +39,7 @@
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $order->station->name }}</td>
                             <td><b>$ </b>{{number_format( $order->amount, 2, '.', ',') }}</td>
-                            <td>
-                                @if ($order->paid_amount==0)
-                                    <span class="badge badge-pill badge-danger">Pending</span>
-                                @elseif ($order->amount==$order->paid_amount)
-                                    <span class="badge badge-pill badge-primary">Paid</span>
-                                 @else
-                                    <span class="badge badge-pill badge-success">Partial Payment</span>
-                                @endif
-                            </td>
+                          
                             <td>{{ $order->approve ? $order->approve->name : '-' }}</td>
                             <td>{{ $order->created_at }}</td>
                             <td>

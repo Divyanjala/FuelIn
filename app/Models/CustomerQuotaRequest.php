@@ -17,4 +17,9 @@ class CustomerQuotaRequest extends Model
     {
         return $this->belongsTo(Stations::class, 'station_id');
     }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
 }

@@ -38,6 +38,12 @@
         </a>
     </li>
 
+    <li class="nav-item {{ in_array($curr_url, ['station.request.all']) ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="{{ route('station.request.all') }}"  >
+            <i class="fas fa-fw fa-address-card"></i>
+            <span>Customers Request</span>
+        </a>
+    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
