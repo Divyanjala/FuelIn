@@ -10,7 +10,7 @@ class CustomerQuotaRequest extends Model
     use HasFactory;
     protected $fillable = [
         'qty','date','customer_id',
-        'station_id','quota_index'
+        'station_id','quota_index','status'
     ];
 
     public function station()

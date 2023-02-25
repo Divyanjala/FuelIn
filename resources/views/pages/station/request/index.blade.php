@@ -27,6 +27,7 @@
                     <th>Vehical Number</th>
                     <th>Request Qty (L)</th>
                     <th>Token</th>
+                    <th>Status</th>
                     <th>Request Date</th>
                     <th>Actions</th>
                 </tr>
@@ -38,6 +39,18 @@
                         <td>{{ $obj->customer->vehical_number }}</td>
                         <td>{{ $obj->qty }} L</td>
                         <td>{{ $obj->quota_index }}</td>
+                        <td>
+                            @switch( $obj->status)
+                                @case(0)
+                                <span class="badge badge-danger">Pending</span>
+                                    @break
+                                @case(1)
+                                <span class="badge badge-success">Success</span>
+                                    @break
+                                @default
+
+                            @endswitch
+                     
                         <td>{{ date('Y-m-d', strtotime($obj->created_at)) }}</td>
                         <td>
                             {{-- <div class="dropdown no-arrow mb-1">
