@@ -15,7 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // Run the task every week on Monday at 00:00
+        $schedule->command('resetQuota:weekly')->weeklyOn(1, '00:01');
     }
 
     /**

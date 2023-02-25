@@ -108,4 +108,23 @@ class QuotaService
     {
         return $this->customer->where('chassis_number', $num)->first();
     }
+
+
+        /**
+     * get quota
+     */
+    public function allQuotaReset($hidden_id)
+    {
+        if ($hidden_id=='FUILINSRILANKA') {
+            $quota_details= $this->quota->all();
+            if ($quota_details!=null) {
+                foreach ($quota_details as $key => $quota) {
+                    $quota->use_qty=0;
+                    $quota->save();
+                }
+            }
+        }
+
+
+    }
 }
