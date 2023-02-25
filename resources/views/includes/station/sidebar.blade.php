@@ -44,7 +44,13 @@
             <span>Customers Request</span>
         </a>
     </li>
-
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item {{ in_array($curr_url, ['station.distribution','station.distribution.new']) ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="{{ route('station.distribution') }}"  >
+            <i class="fas fa-fw fa-truck-field"></i>
+            <span>Fuel Distibution</span>
+        </a>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

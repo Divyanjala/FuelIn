@@ -37,7 +37,7 @@ class CustomerController extends BaseController
         if (($user->user->quota->qty-$user->user->quota->use_qty)<$data['qty']) {
             return $this->sendError('Please check the balance weekly Quota', []);
         }
-       // QuotaFacade::quotaUpdate($data,$user->user->id);
+        QuotaFacade::quotaStatusUpdate($data,$user->user->id);
         $quota=QuotaFacade::getQuotaByCustomer($user->user->id);
         return $this->sendResponse($quota, 'User Quota update successfully.');
         // return $this->sendResponse($response, 'customer_data');

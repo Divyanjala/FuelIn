@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DistributionController as ADC;
 use App\Http\Controllers\Station\HomeController as SHC;
 use App\Http\Controllers\Station\CustomerController as SCC;
 use App\Http\Controllers\Station\VehicleController as SVC;
+use App\Http\Controllers\Station\DistributionController as SDC;
 
 use App\Http\Controllers\User\HomeController as UHC;
 /*
@@ -65,6 +66,13 @@ Route::prefix('station')->group(function () {
             Route::get('', [SVC::class, "index"])->name('station.customers.vehicle');
         });
     });
+
+    Route::get('/distribution', [SDC::class, "index"])->name('station.distribution');
+    Route::get('/distribution/new', [SDC::class, "newDistribution"])->name('station.distribution.new');
+    Route::post('/distribution/store', [SDC::class, "storeDistribution"])->name('station.distribution.store');
+    Route::get('/distribution/view/{id}', [SDC::class, "viewDistribution"])->name('station.distribution.view');
+    Route::get('/distribution/approve/{id}', [SDC::class, "approveDistribution"])->name('station.distribution.approve');
+    Route::get('/fuel-type/get', [SDC::class, "getfuelType"])->name('station.fuel-type.get');
 
     Route::get('', [SHC::class, "index"])->name('station.dashboard');
 });

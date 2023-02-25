@@ -41,6 +41,13 @@ class DistributionService
         return $this->distribution->find($id);
     }
 
+    /**
+     * get distribution
+     */
+    public function getByStation($id)
+    {
+        return $this->distribution->where('station_id',$id)->get();
+    }
        /**
      * Make user Array
      * @param array $data
