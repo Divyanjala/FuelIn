@@ -165,6 +165,20 @@ class CustomerController extends ParentController
 
     public function sendEmail(Request $request)
     {
-        dd($request);
+        $data=$request->all();
+        $quotas=UserFacade::getPendingRequests(Auth::user()->station->id);
+
+        foreach ($quotas as $quota) {
+            if ($data['type']==1) {
+                Mail::to($quota->customer->user->email)
+                ->send(new \App\Mail\stockEmail($quota->customer->user));
+            } else {
+                Mail::to($quota->customer->user->email)
+                ->send(new \App\Mail\ReminderEmail($quota->customer->user));
+            }
+        }
+
+        return redirect()->route('station.notification')->with('alert-success', 'Customer Notification Send successfully!');
+
     }
 }

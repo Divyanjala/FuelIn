@@ -22,7 +22,7 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="name"><b>Notification Type</b></label>
-                                    <select name="tyepe" id="" class="form-control form-control-alternative" >
+                                    <select name="type" id="" class="form-control form-control-alternative" >
                                         <option value="1">scheduled fuel stock is finished</option>
                                         <option value="2">Reminder with amount requested</option>
                                     </select>

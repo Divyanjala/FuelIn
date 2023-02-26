@@ -11,10 +11,7 @@ class Customer extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class,'user_id');
-    }
+
 
     protected $fillable = [
         'full_name', 'code','mobile_number','vehical_number','nic',
@@ -28,4 +25,9 @@ class Customer extends Model
     public function quota(){
         return $this->hasOne(CustomerQuota::class,'customer_id');
     }
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
+
 }

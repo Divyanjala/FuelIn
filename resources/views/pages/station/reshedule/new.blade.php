@@ -22,21 +22,21 @@
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="name"><b>Extend Date</b></label>
-                                    <input type="text" class="form-control form-control-alternative" name="name"
+                                    <input type="number" class="form-control form-control-alternative" name="name"
                                         id="name" aria-describedby="helpId" placeholder="" required>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="name"><b>Extend Hours</b></label>
-                                    <input type="text" class="form-control form-control-alternative" name="name"
+                                    <input type="number" class="form-control form-control-alternative" name="name"
                                         id="name" aria-describedby="helpId" placeholder="" required>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="name"><b>Extend Minutes</b></label>
-                                    <input type="text" class="form-control form-control-alternative" name="name"
+                                    <input type="number" class="form-control form-control-alternative" name="name"
                                         id="name" aria-describedby="helpId" placeholder="" required>
                                 </div>
                             </div>

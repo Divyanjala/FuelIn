@@ -42,6 +42,14 @@ class UserService
         return $this->user->where('user_role',2)->get()->count();
     }
 
+    public function getPendingRequests($id)
+    {
+        return $this->customer_request
+        ->where('status',0)
+        ->where('station_id',$id)->orderBy('id', 'desc')->get();
+    }
+
+
     /**
      * get user
      */

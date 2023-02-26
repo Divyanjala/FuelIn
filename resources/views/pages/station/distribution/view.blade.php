@@ -44,7 +44,7 @@
                                 <div class="form-group">
                                     <label for="customer_id"><b>Paid Amount</b></label>
                                     <input type="text" class="form-control form-control-alternative" readonly
-                                        id="customer" value="{{ $order->paid_amount }}">
+                                        id="customer" value="{{ $order->amount }}">
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -59,12 +59,12 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    <label for="customer_id"><b>Payment Status</b></label>
+                                    <label for="customer_id"><b>Distribution Status</b></label>
                                     <br>
                                     @if ($order->paid_amount == 0)
                                         <span class="badge badge-pill badge-danger">Pending</span>
                                     @elseif ($order->amount == $order->paid_amount)
-                                        <span class="badge badge-pill badge-primary">Paid</span>
+                                        <span class="badge badge-pill badge-primary">Delivered</span>
                                     @else
                                         <span class="badge badge-pill badge-success">Partial Payment</span>
                                     @endif
@@ -93,7 +93,7 @@
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="email"><b>Approved By</b></label>
-
+                                    <br>
                                     <span
                                         class="badge badge-pill badge-danger">{{ $order->approve ? $order->approve->name : 'Not Approve' }}</span>
                                 </div>
