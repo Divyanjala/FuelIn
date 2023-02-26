@@ -89,11 +89,10 @@ class QuotaService
 
     public function quotaStatusUpdate($request,$id)
     {
-        $newdata['use_qty'] =  $request['qty'];
+        $newdata['qty'] =  $request['qty'];
         $newdata['status'] = 1;
-        return $this->quota->where('customer_id',$id)->update($newdata);
+        return $this->customer_request->where('customer_id',$id)->where('status',0)->update($newdata);
     }
-
        /**
      * All nic
      */
