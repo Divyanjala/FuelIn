@@ -161,4 +161,10 @@ class CustomerController extends ParentController
             'email.unique' => 'This email is already connected to an account.'
         ];
     }
+
+
+    public function sendEmail(Request $request)
+    {
+        dd($request);
+    }
 }

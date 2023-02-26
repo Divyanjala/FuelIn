@@ -78,6 +78,8 @@ Route::prefix('station')->group(function () {
 
     Route::get('/reshedule', [SDC::class, "reshedule"])->name('station.reshedule');
     Route::get('/notification', [SDC::class, "notification"])->name('station.notification');
+    
+    Route::post('/send/notification', [SCC::class, "sendEmail"])->name('station.send.notification');
 });
 
 Route::prefix('/user')->group(function () {
