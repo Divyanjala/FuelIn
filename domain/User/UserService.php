@@ -55,6 +55,12 @@ class UserService
         return $this->customer_request
         ->where('customer_id',$id)->orderBy('id', 'desc')->get();
     }
+    public function getRequestCount($id)
+    {
+        return $this->customer_request
+        ->where('status',0)
+        ->where('station_id',$id)->orderBy('id', 'desc')->get()->count();
+    }
 
     public function getStationRequest($id)
     {

@@ -51,7 +51,7 @@
                                 <span class="badge badge-danger">Expired</span>
                             @endswitch
 
-                        <td>{{ date('Y-m-d', strtotime($obj->created_at)) }}</td>
+                        <td>{{ $obj->created_at }}</td>
                         <td>
                             {{-- <div class="dropdown no-arrow mb-1">
                                 <a class="btn btn-sm btn-icon-only text-dark" href="#" role="button"
