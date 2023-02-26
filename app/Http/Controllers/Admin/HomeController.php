@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use domain\Facades\DistributionFacade;
 use Illuminate\Http\Request;
 
 class HomeController extends ParentController
 {
    public function index()
    {
-      return view('pages.admin.dashboard');
+    $response['monthEarn']=DistributionFacade::paymentMonthly();
+    $response['annualEarn']=DistributionFacade::paymentAnnualy();
+    $response['chartdata']=DistributionFacade::chartdata();
+      return view('pages.admin.dashboard')->with($response);
    }
 }
