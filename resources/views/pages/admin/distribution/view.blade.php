@@ -129,6 +129,7 @@
                                                 <th scope="col">#</th>
                                                 <th scope="col">Fuel name </th>
                                                 <th scope="col">Qty (Liter)</th>
+                                                <th scope="col">Available Qty (Liter)</th>
                                             </tr>
                                         </thead>
                                         <tbody id="products">
@@ -137,7 +138,7 @@
                                                     <td>{{ $key }}</td>
                                                     <td>{{ $item->product->name }} </td>
                                                     <td>{{ $item->qty }} L</td>
-
+                                                    <td>{{ $item->qty-60 }} L</td>
                                                 </tr>
                                             @endforeach
 

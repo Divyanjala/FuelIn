@@ -39,7 +39,7 @@
                             <tr>
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ $order->station->name }}</td>
-                                <td><b>$ </b>{{ number_format($order->amount, 2, '.', ',') }}</td>
+                                <td><b>Rs.  </b>{{ number_format($order->amount, 2, '.', ',') }}</td>
 
                                 <td>{{ $order->approve ? $order->approve->name : '-' }}</td>
                                 <td>{{ $order->created_at }}</td>

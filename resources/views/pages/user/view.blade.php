@@ -37,7 +37,7 @@
                     <div class="col md-6">
                         <div class="mb-3">
                             {!! DNS2D::getBarcodeHTML(
-                                ' https://bd82-2402-4000-b18e-918c-94f4-7f5b-e175-d02f.in.ngrok.io/api/customerQuota/' . $user->user->id,
+                                'https://983d-2402-4000-21c0-7a69-54ba-656b-6d07-5cdb.in.ngrok.io/api/customerQuota/' . $user->user->id,
                                 'QRCODE',
                             ) !!}
                         </div>

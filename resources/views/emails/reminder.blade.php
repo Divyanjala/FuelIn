@@ -8,7 +8,7 @@
 
     <p>Email -  {{ $user['email'] }}</p>
     <p>Vehical Number - {{ $customer['vehical_number'] }}</p>
-    <p>Amount - ${{ $quota['qty'] }}</p>
+    <p>Amount - Rs. {{ $quota['qty'] }}</p>
     <p>Date and Time - {{ $quota['date'] }}</p>
     <p>Thank you</p>
 </body>
