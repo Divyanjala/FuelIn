@@ -15,20 +15,14 @@
             <form action="{{ route('station.customers.store') }}" method="post">
                 @csrf
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label class="font-weight-bold">First Name</label>
-                            <input name="first_name" value="{{old('first_name')}}" type="text" class="form-control @error('first_name')is-invalid @enderror">
-                            @error('first_name')<span class="small text-danger">{{ $message }}</span>@enderror
+                            <label class="font-weight-bold">Full Name</label>
+                            <input name="name" value="{{old('name')}}" type="text" class="form-control @error('name')is-invalid @enderror">
+                            @error('name')<span class="small text-danger">{{ $message }}</span>@enderror
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="font-weight-bold">Last Name</label>
-                            <input name="last_name" value="{{old('last_name')}}" type="text" class="form-control @error('last_name')is-invalid @enderror">
-                            @error('last_name')<span class="small text-danger">{{ $message }}</span>@enderror
-                        </div>
-                    </div>
+
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -67,13 +61,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="font-weight-bold">Vehicle Type</label>
-                            <select name="type_id" class="form-control @error('type_id')is-invalid @enderror">
+                            <select name="vehical_type" class="form-control @error('vehical_type')is-invalid @enderror">
                                 <option value="">- Select Vehicle Type -</option>
                                 @foreach($vehicleTypesArr as $vehicleType)
-                                    <option @if($vehicleType['id'] == old('type_id')) selected @endif value="{{$vehicleType['id']}}">{{$vehicleType['name']}}</option>
+                                    <option @if($vehicleType['id'] == old('vehical_type')) selected @endif value="{{$vehicleType['id']}}">{{$vehicleType['name']}}</option>
                                 @endforeach
                             </select>
-                            @error('type_id')<span class="small text-danger">{{ $message }}</span>@enderror
+                            @error('vehical_type')<span class="small text-danger">{{ $message }}</span>@enderror
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -129,7 +123,7 @@
                         <label class="font-weight-bold">Confirm Password</label>
                         <input type="password" class="form-control "
                             id="exampleRepeatPassword" placeholder="Repeat Password"
-                            name="password_confirmation">
+                            name="c_password">
                     </div>
                 </div>
 

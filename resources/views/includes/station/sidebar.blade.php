@@ -51,6 +51,22 @@
             <span>Fuel Distibution</span>
         </a>
     </li>
+              <!-- Heading -->
+     <div class="sidebar-heading">
+         Setting
+     </div>
+     <li class="nav-item {{ in_array($curr_url, ['station.reshedule']) ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="{{ route('station.reshedule') }}"  >
+            <i class="fas fa-fw fa-file"></i>
+            <span>Reshedule</span>
+        </a>
+    </li>
+    <li class="nav-item {{ in_array($curr_url, ['station.notification']) ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="{{ route('station.notification') }}"  >
+            <i class="fas fa-fw fa-bell"></i>
+            <span>Notification Manage</span>
+        </a>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

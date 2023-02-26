@@ -75,6 +75,9 @@ Route::prefix('station')->group(function () {
     Route::get('/fuel-type/get', [SDC::class, "getfuelType"])->name('station.fuel-type.get');
 
     Route::get('', [SHC::class, "index"])->name('station.dashboard');
+
+    Route::get('/reshedule', [SDC::class, "reshedule"])->name('station.reshedule');
+    Route::get('/notification', [SDC::class, "notification"])->name('station.notification');
 });
 
 Route::prefix('/user')->group(function () {

@@ -28,7 +28,7 @@
                     <th>Request Qty (L)</th>
                     <th>Token</th>
                     <th>Status</th>
-                    <th>Request Date</th>
+                    <th>Shedule Date and Time</th>
                     <th>Actions</th>
                 </tr>
                 </thead>

@@ -13,7 +13,7 @@ class DistributionController extends Controller
 {
     public function index()
     {
-       
+
        $response['orders']=DistributionFacade::getByStation(Auth::user()->station->id);
        return view('pages.station.distribution.index')->with($response);
     }
@@ -48,5 +48,16 @@ class DistributionController extends Controller
     {
        $product= SettingFacade::getType($request->all()['id']);
        return ['name'=>$product['name'],'price'=>$product['price']];
+    }
+
+    public function reshedule()
+    {
+       return view('pages.station.reshedule.new');
+    }
+
+    public function notification()
+    {
+
+       return view('pages.station.notification.new');
     }
 }
