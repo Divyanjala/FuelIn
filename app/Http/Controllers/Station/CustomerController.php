@@ -174,7 +174,7 @@ class CustomerController extends ParentController
                 ->send(new \App\Mail\stockEmail($quota->customer->user));
             } else {
                 Mail::to($quota->customer->user->email)
-                ->send(new \App\Mail\ReminderEmail($quota->customer->user));
+                ->send(new \App\Mail\ReminderEmail($quota));
             }
         }
 

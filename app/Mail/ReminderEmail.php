@@ -22,6 +22,7 @@ class ReminderEmail extends Mailable
     public function __construct($data)
     {
         $this->data = $data;
+        $this->data['qty']=$this->data['qty']*100;
     }
 
     /**
@@ -43,7 +44,11 @@ class ReminderEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.reminder',['date' => $this->data]);
+        return $this->view('emails.reminder',[
+            'quota' => $this->data,
+            'customer' => $this->data->customer,
+            'user' => $this->data->customer->user
+        ]);
     }
 
 
