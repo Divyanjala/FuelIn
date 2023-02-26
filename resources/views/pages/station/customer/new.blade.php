@@ -106,18 +106,33 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label class="font-weight-bold">Chassis Number</label>
                             <input name="chassis_number" value="{{old('chassis_number')}}" type="text" class="form-control @error('chassis_number')is-invalid @enderror">
                             @error('chassis_number')<span class="small text-danger">{{ $message }}</span>@enderror
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Vehical Number</label>
+                            <input name="vehical_number" value="{{old('vehical_number')}}" type="text" class="form-control @error('vehical_number')is-invalid @enderror">
+                            @error('vehical_number')<span class="small text-danger">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="font-weight-bold">Password</label>
+                        <input type="password" class="form-control"
+                            id="exampleInputPassword" placeholder="Password" name="password">
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="font-weight-bold">Confirm Password</label>
+                        <input type="password" class="form-control "
+                            id="exampleRepeatPassword" placeholder="Repeat Password"
+                            name="password_confirmation">
+                    </div>
                 </div>
 
-                <div class="alert alert-dark" role="alert">
-                    Customer's default password is his/her mobile number. For security purposes, we recommend changing password after first login.
-                </div>
 
                 <div class="row mt-4">
                     <div class="col-md-12">
