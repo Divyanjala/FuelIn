@@ -4,6 +4,7 @@ namespace domain\Quota;
 
 use App\Models\Customer;
 use App\Models\CustomerQuota;
+use App\Models\CustomerQuotaRequest;
 use App\Models\User;
 use App\Models\VehicleType;
 
@@ -21,12 +22,15 @@ class QuotaService
     protected $user;
     protected $vehical_type;
     protected $customer;
+    protected $customer_request;
+
     public function __construct()
     {
         $this->user = new User();
         $this->quota = new CustomerQuota();
         $this->customer = new Customer();
         $this->vehical_type = new VehicleType();
+        $this->customer_request = new CustomerQuotaRequest();
     }
 
     /**
@@ -122,11 +126,19 @@ class QuotaService
     public function allQuotaReset($hidden_id)
     {
         if ($hidden_id=='FUILINSRILANKA') {
-            $quota_details= $this->quota->all();
+            $quota_details= $this->quota->all();//reset customer quota of week
             if ($quota_details!=null) {
-                foreach ($quota_details as $key => $quota) {
+                foreach ($quota_details as  $quota) {
                     $quota->use_qty=0;
                     $quota->save();
+                }
+            }
+
+            $quota_request= $this->customer_request->where('status',0)->get();
+            if ($quota_request!=null) {
+                foreach ($quota_request as $request) {
+                    $request->status=2;
+                    $request->save();
                 }
             }
         }

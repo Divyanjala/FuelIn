@@ -42,15 +42,15 @@
                         <td>
                             @switch( $obj->status)
                                 @case(0)
-                                <span class="badge badge-danger">Pending</span>
+                                <span class="badge badge-primary">Pending</span>
                                     @break
                                 @case(1)
                                 <span class="badge badge-success">Success</span>
                                     @break
                                 @default
-
+                                <span class="badge badge-danger">Expired</span>
                             @endswitch
-                     
+
                         <td>{{ date('Y-m-d', strtotime($obj->created_at)) }}</td>
                         <td>
                             {{-- <div class="dropdown no-arrow mb-1">

@@ -117,7 +117,8 @@
                     <th scope="col">#</th>
                     <th scope="col">Station</th>
                     <th scope="col">Request Qty (L)</th>
-                    <th scope="col">Date</th>
+                    <th scope="col">Date and Time</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Token Number</th>
                   </tr>
                 </thead>
@@ -128,6 +129,18 @@
                         <th scope="row">{{$request->station->name}}</th>
                         <td>{{$request->qty}}</td>
                         <td>{{$request->date}}</td>
+                        <td>
+                            @switch( $request->status)
+                            @case(0)
+                            <span class="badge badge-primary">Pending</span>
+                                @break
+                            @case(1)
+                            <span class="badge badge-success">Success</span>
+                                @break
+                            @default
+                            <span class="badge badge-danger">Expired</span>
+                        @endswitch
+                        </td>
                         <td>{{$request->quota_index}}</td>
                       </tr>
                     @endforeach

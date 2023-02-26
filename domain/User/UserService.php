@@ -57,12 +57,16 @@ class UserService
 
     public function makeRequest($data)
     {
-
+        $quota_index=1;
+        $old= $this->customer_request->where('status',0)->orderBy('id', 'desc')->first();
+        if ($old) {
+            $quota_index=$old->quota_index+1;
+        }
         $userData['date'] = Carbon::now();
         $userData['qty'] = $data['qty'];
         $userData['customer_id'] = $data['customer_id'];
         $userData['station_id'] = $data['station_id'];
-        $userData['quota_index'] = 1;
+        $userData['quota_index'] = $quota_index;
         $user=$this->customer_request->create($userData);
         return $user;
     }
