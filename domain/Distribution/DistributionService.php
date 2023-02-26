@@ -87,8 +87,20 @@ class DistributionService
         $distribution= $this->distribution->where('id',$id)->update(['status'=>$status]);
         return $distribution;
     }
-
-
+       /**
+     * All user
+     */
+    public function allOrderCount()
+    {
+        return $this->distribution->get()->count();
+    }
+       /**
+     * All user
+     */
+    public function allPendingOrderCount()
+    {
+        return $this->distribution->where('status',0)->get()->count();
+    }
            /**
      * get store
      */

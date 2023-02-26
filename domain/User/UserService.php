@@ -34,6 +34,14 @@ class UserService
     {
         return $this->user->where('user_role',0)->orderBy('id', 'desc')->get();
     }
+        /**
+     * All user
+     */
+    public function allStationCount()
+    {
+        return $this->user->where('user_role',2)->get()->count();
+    }
+
     /**
      * get user
      */
